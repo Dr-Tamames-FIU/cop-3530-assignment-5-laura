@@ -15,10 +15,16 @@ public class ExtendedGraph extends AbstractGraph {
     // ** TO DO **
     public List<Edge> incidentEdges(Vertex v) {
         // Returns the edges around vertex v
+        List<Edge> incidentEdges = new ArrayList<>();
 
-        return new ArrayList<Edge>();
-    };
+    for (Edge edge : edges) {
+        // Check if the edge is incident to the given vertex
+        if (edge.getStartVertex().equals(v) || edge.getEndVertex().equals(v)) {
+            // If incident, add the edge to the list
+            incidentEdges.add(edge);
+        }
+    }
 
-
-
+    // Return the list of incident edges
+    return incidentEdges;
 }
