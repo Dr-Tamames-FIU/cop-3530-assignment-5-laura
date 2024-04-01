@@ -48,7 +48,8 @@ public class Path {
         // Create a priority queue that is exactly the same thing as paths but
         // used for extracting minimum. This gets one element smaller after each iteration (see below)
         // ...
-        PriorityQueue<PathVertex> priority = updatePriorityQueueDistances(paths); 
+        PriorityQueue<PathVertex> priority = new PriorityQueue<>(Comparator.comparingInt(v -> v.distance));
+        priorityQueue.addAll(paths);
         // while...
         while (!priority.isEmpty()) { 
             // always starts each iteration with the smallest PathVertex, pv
@@ -67,7 +68,7 @@ public class Path {
             // for...
                 // ...
             for (Edge edge : edgesIncident) {
-                Vertex incidentVertex = edge.vertex2; 
+                Vertex v = edge.vertex2; 
                 PathVertex incidentPathVertex = null;
                 // since the vertex (incidentVertex of type Vertex) returned from incident vertex
                 // does not hold information about its current distance to the source,
@@ -76,7 +77,7 @@ public class Path {
                     // ...
                     // ...
                 for (PathVertex pathVertex : paths) {
-                    if (pathVertex.equals(incidentVertex)) {
+                    if (pathVertex.equals(v)) {
                         incidentPathVertex = pathVertex;
                         break;
                     }
@@ -86,7 +87,7 @@ public class Path {
                         // ...
                  if (incidentPathVertex != null) {
                      if (relaxEdge(pv, incidentPathVertex, edge.weight)) {
-                         priority.remove(incidentPathVertex);
+                         priority+.remove(incidentPathVertex);
                          priority.add(incidentPathVertex);
                      }
                  }
