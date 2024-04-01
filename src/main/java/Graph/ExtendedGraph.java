@@ -13,7 +13,6 @@ public class ExtendedGraph extends AbstractGraph {
      * @param v the vertex to get edges from
      */
     // ** TO DO **
-    
     public List<Edge> incidentEdges(Vertex v) {
         // Returns the edges around vertex v
         List<Edge> incidentEdges = new ArrayList<>();
@@ -28,6 +27,7 @@ public class ExtendedGraph extends AbstractGraph {
          // Return the list of incident edges
          return incidentEdges;
     }
+    
     public Vertex getVertex (int id) {
         //return the vertex with especific id
       for (Vertex vertex : vertices) {
