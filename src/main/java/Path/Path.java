@@ -48,7 +48,8 @@ public class Path {
         // Create a priority queue that is exactly the same thing as paths but
         // used for extracting minimum. This gets one element smaller after each iteration (see below)
         // ...
-        PriorityQueue<PathVertex> priority = updatePriorityQueueDistances(paths); 
+        PriorityQueue<PathVertex> priority = new PriorityQueue<>(new SortByDistance()); 
+        priority.addAll(paths);
         // while...
         while (!priority.isEmpty()) { 
             // always starts each iteration with the smallest PathVertex, pv
