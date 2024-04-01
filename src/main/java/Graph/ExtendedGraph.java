@@ -29,9 +29,9 @@ public class ExtendedGraph extends AbstractGraph {
     }
     
     public Vertex getVertex (int id) {
-        //return the vertex with especific id
+        //return the vertex with specific id
       for (Vertex vertex : vertices) {
-        if (vertex.equals(new Vertex(String.valueOf(id)))) {
+        if (vertex.getLabel().equals(String.valueOf(id))) {
             return vertex;
         }
       }
