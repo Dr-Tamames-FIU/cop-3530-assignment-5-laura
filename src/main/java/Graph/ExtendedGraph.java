@@ -28,8 +28,16 @@ public class ExtendedGraph extends AbstractGraph {
             incidentEdges.add(edge);
         }
     }
-
-    // Return the list of incident edges
-    return incidentEdges;
+         // Return the list of incident edges
+         return incidentEdges;
+    }
+    public Vertex getVertex (int id) {
+        //return the vertex with especific id
+      for (Vertex vertex : vertices) {
+        if (vertex.getId() == id) {
+            return vertex;
+        }
+      }
+    return null;
     }
 }
