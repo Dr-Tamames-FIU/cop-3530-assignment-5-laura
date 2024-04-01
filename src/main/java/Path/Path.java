@@ -97,7 +97,7 @@ public class Path {
                             // ...
 
         return paths;
-    }
+    
 
     private static PriorityQueue<PathVertex> updatePriorityQueueDistances(List<PathVertex> paths) {
         PriorityQueue<PathVertex> pq = new PriorityQueue<>(new SortByDistance());
@@ -140,7 +140,7 @@ public class Path {
            paths.add(pathVertex);
         }
     return paths;
-}}
+}
 
     public static boolean relaxEdge(PathVertex v, PathVertex w, int weight) {
         if(!v.distance.equals(Integer.MAX_VALUE) && v.distance + weight < w.distance) {
