@@ -76,7 +76,7 @@ public class Path {
                     // ...
                     // ...
                 for (Pathvertex pathvertex : paths) {
-                    if (pathVertex.vertex.equals(incidentVertex) {
+                    if (pathVertex.vertex.equals(incidentVertex)) {
                         incidentPathVertex = pathVertex;
                         break;
                     }
