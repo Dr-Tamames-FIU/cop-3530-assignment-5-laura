@@ -50,7 +50,7 @@ public class Path {
         // ...
         PriorityQueue<PathVertex> priority = updatePriorityQueueDistances(paths); 
         // while...
-        while (!priotity.isEmpty()) { 
+        while (!priority.isEmpty()) { 
             // always starts each iteration with the smallest PathVertex, pv
             // ...
             PathVertex pv = priority.poll();
@@ -61,12 +61,12 @@ public class Path {
 
             // retrieve all edges incident to pv
             // ...
-            List<Edge> edgesIncident = g.incidentEdges(pv.vertex);
+            List<Edge> edgesIncident = g.incidentEdges(pv);
 
             // look into (not visit) all vertices incident to pv
             // for...
                 // ...
-            for (Edge edge : incidentEdges) {
+            for (Edge edge : edgesIncident) {
                 Vertex incidentVertex = edge.getEndVertex(); 
                 PathVertex incidentPathVertex = null;
                 // since the vertex (incidentVertex of type Vertex) returned from incident vertex
@@ -75,7 +75,7 @@ public class Path {
                 // for...
                     // ...
                     // ...
-                for (Pathvertex pathvertex : paths) {
+                for (PathVertex pathVertex : paths) {
                     if (pathVertex.vertex.equals(incidentVertex)) {
                         incidentPathVertex = pathVertex;
                         break;
