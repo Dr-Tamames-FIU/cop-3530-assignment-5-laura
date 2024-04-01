@@ -27,17 +27,7 @@ public class ExtendedGraph extends AbstractGraph {
          // Return the list of incident edges
          return incidentEdges;
     }
-    
-    public Vertex getVertex (int id) {
-        //return the vertex with specific id
-      for (Vertex vertex : vertices) {
-        if (vertex.getLabel().equals(String.valueOf(id))) {
-            return vertex;
-        }
-      }
-    return null;
-    }
-    
+
      public List<Vertex> getVertices() {
         return this.vertices;
     }
