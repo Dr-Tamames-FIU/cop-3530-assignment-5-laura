@@ -17,7 +17,7 @@ public class Path {
 
         ExtendedGraph graph = new ExtendedGraph(vertices, edges);
 //        Testing
-          List<Edge> incidentEdges = graph.incidentEdges(graph.getVertex(1));
+    /*      List<Edge> incidentEdges = graph.incidentEdges(graph.getVertex(1));
           System.out.println(incidentEdges.toString());
           expected output: "[B A 9, B F 2, B C 12]"
 
@@ -37,7 +37,7 @@ public class Path {
          }
          System.out.print(resultsInStringForm);
           expected output: "(parent: F distance: 5 destination: A)(parent: null distance: 0 destination: B)(parent: G distance: 8 destination: C)(parent: C distance: 9 destination: D)(parent: G distance: 9 destination: E)(parent: B distance: 2 destination: F)(parent: A distance: 6 destination: G)"
-
+*/
     }
 
     // ** TO DO **
