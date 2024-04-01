@@ -87,7 +87,7 @@ public class Path {
                         // ...
                  if (incidentPathVertex != null) {
                      if (relaxEdge(pv, incidentPathVertex, edge.weight)) {
-                         priority+.remove(incidentPathVertex);
+                         priority.remove(incidentPathVertex);
                          priority.add(incidentPathVertex);
                      }
                  }
