@@ -37,4 +37,8 @@ public class ExtendedGraph extends AbstractGraph {
       }
     return null;
     }
+    
+     public List<Vertex> getVertices() {
+        return this.vertices;
+    }
 }
