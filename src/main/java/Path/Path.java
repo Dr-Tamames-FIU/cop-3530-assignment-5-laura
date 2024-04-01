@@ -67,7 +67,7 @@ public class Path {
             // for...
                 // ...
             for (Edge edge : edgesIncident) {
-                Vertex incidentVertex = edge.vertex2(); 
+                Vertex incidentVertex = edge.vertex2; 
                 PathVertex incidentPathVertex = null;
                 // since the vertex (incidentVertex of type Vertex) returned from incident vertex
                 // does not hold information about its current distance to the source,
@@ -76,7 +76,7 @@ public class Path {
                     // ...
                     // ...
                 for (PathVertex pathVertex : paths) {
-                    if (pathVertex.vertex.equals(incidentVertex)) {
+                    if (pathVertex.equals(incidentVertex)) {
                         incidentPathVertex = pathVertex;
                         break;
                     }
@@ -85,7 +85,7 @@ public class Path {
                         // see IF the edge needs to be relaxed
                         // ...
                  if (incidentPathVertex != null) {
-                     if (relaxEdge(pv, incidentPathVertex, edge.weight())) {
+                     if (relaxEdge(pv, incidentPathVertex, edge.weight)) {
                          priority.remove(incidentPathVertex);
                          priority.add(incidentPathVertex);
                      }
@@ -119,9 +119,10 @@ public class Path {
         // This sets every PathVertex's parent to null and its distance to the source infinity
         // except for the source (s) where its distance is 0
         // get the vertices (which is of type Vertex) from g and create a List of type PathVertex
-        List <PathVertex> paths  = new ArrayList<>();
-        for (Vertex vertex : g.vertices) {
-            PathVertex pathVertex = new PathVertex (vertex.getLabel());
+        List<Vertex> vertices = g.getVertices();
+        List<PathVertex> paths = new ArrayList<>();
+        for (Vertex vertex : vertices) {
+            PathVertex pathVertex = new PathVertex(vertex.getLabel());
             
            // It initializes the distance attribute of each PathVertex in the graph. If the current vertex (vertex) 
            // is the same as the source vertex (s), indicating that it's the starting point of the path, its distance 
