@@ -17,26 +17,26 @@ public class Path {
 
         ExtendedGraph graph = new ExtendedGraph(vertices, edges);
 //        Testing
-//        List<Edge> incidentEdges = graph.incidentEdges(graph.getVertex(1));
-//        System.out.println(incidentEdges.toString());
-//        expected output: "[B A 9, B F 2, B C 12]"
+          List<Edge> incidentEdges = graph.incidentEdges(graph.getVertex(1));
+          System.out.println(incidentEdges.toString());
+          expected output: "[B A 9, B F 2, B C 12]"
 
-//        Vertex source = graph.getVertex(1);
-//        System.out.println("Source: " + source);
-//        List<PathVertex> paths = initializeSingleSource(graph, source);
-//        String pathsInStringForm = "";
-//        for(int i = 0; i < paths.size(); i++)
-//            pathsInStringForm = pathsInStringForm + paths.get(i).info().toString();
-//        System.out.println(pathsInStringForm)
-//        expected output: "(parent: null distance: 2147483647 destination: A)(parent: null distance: 0 destination: B)(parent: null distance: 2147483647 destination: C)(parent: null distance: 2147483647 destination: D)(parent: null distance: 2147483647 destination: E)(parent: null distance: 2147483647 destination: F)(parent: null distance: 2147483647 destination: G)"
+         Vertex source = graph.getVertex(1);
+         System.out.println("Source: " + source);
+         List<PathVertex> paths = initializeSingleSource(graph, source);
+         String pathsInStringForm = "";
+         for(int i = 0; i < paths.size(); i++)
+             pathsInStringForm = pathsInStringForm + paths.get(i).info().toString();
+         System.out.println(pathsInStringForm)
+         expected output: "(parent: null distance: 2147483647 destination: A)(parent: null distance: 0 destination: B)(parent: null distance: 2147483647 destination: C)(parent: null distance: 2147483647 destination: D)(parent: null distance: 2147483647 destination: E)(parent: null distance: 2147483647 destination: F)(parent: null distance: 2147483647 destination: G)"
 
-//        List<PathVertex> results = dijkstra(graph, graph.getVertex(1));
-//        String resultsInStringForm = "";
-//        for(int i = 0; i < results.size(); i++) {
-//            resultsInStringForm = resultsInStringForm + results.get(i).info();
-//        }
-//        System.out.print(resultsInStringForm);
-//        expected output: "(parent: F distance: 5 destination: A)(parent: null distance: 0 destination: B)(parent: G distance: 8 destination: C)(parent: C distance: 9 destination: D)(parent: G distance: 9 destination: E)(parent: B distance: 2 destination: F)(parent: A distance: 6 destination: G)"
+         List<PathVertex> results = dijkstra(graph, graph.getVertex(1));
+         String resultsInStringForm = "";
+         for(int i = 0; i < results.size(); i++) {
+            resultsInStringForm = resultsInStringForm + results.get(i).info();
+         }
+         System.out.print(resultsInStringForm);
+          expected output: "(parent: F distance: 5 destination: A)(parent: null distance: 0 destination: B)(parent: G distance: 8 destination: C)(parent: C distance: 9 destination: D)(parent: G distance: 9 destination: E)(parent: B distance: 2 destination: F)(parent: A distance: 6 destination: G)"
 
     }
 
