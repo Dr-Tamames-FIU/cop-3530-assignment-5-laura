@@ -27,7 +27,7 @@ public class Path {
          String pathsInStringForm = "";
          for(int i = 0; i < paths.size(); i++)
              pathsInStringForm = pathsInStringForm + paths.get(i).info().toString();
-         System.out.println(pathsInStringForm)
+         System.out.println(pathsInStringForm);
       //   expected output: "(parent: null distance: 2147483647 destination: A)(parent: null distance: 0 destination: B)(parent: null distance: 2147483647 destination: C)(parent: null distance: 2147483647 destination: D)(parent: null distance: 2147483647 destination: E)(parent: null distance: 2147483647 destination: F)(parent: null distance: 2147483647 destination: G)"
 
          List<PathVertex> results = dijkstra(graph, graph.getVertex(1));
