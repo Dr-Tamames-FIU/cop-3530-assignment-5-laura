@@ -6,7 +6,7 @@ import java.util.List;
 public class ExtendedGraph extends AbstractGraph {
     public ExtendedGraph(List vertices, List edges) {
         super(vertices, edges);
-    };
+    }
 
     /**
      * Return list of edges around vertex
