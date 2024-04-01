@@ -35,7 +35,6 @@ public class ExtendedGraph extends AbstractGraph {
             return vertex;
         }
       }
-        
     return null;
     }
     
