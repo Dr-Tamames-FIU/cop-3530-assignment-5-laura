@@ -121,7 +121,7 @@ public class Path {
         // get the vertices (which is of type Vertex) from g and create a List of type PathVertex
         List <PathVertex> paths  = new ArrayList<>();
         for (Vertex vertex : g.vertices) {
-            PathVertex pathVertex = new PathVertex (vertex.getLabel()));
+            PathVertex pathVertex = new PathVertex (vertex.getLabel());
             
            // It initializes the distance attribute of each PathVertex in the graph. If the current vertex (vertex) 
            // is the same as the source vertex (s), indicating that it's the starting point of the path, its distance 
