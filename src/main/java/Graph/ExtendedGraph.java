@@ -19,7 +19,7 @@ public class ExtendedGraph extends AbstractGraph {
 
     for (Edge edge : edges) {
         // Check if the edge is incident to the given vertex
-        if (edge.getStartVertex().equals(v) || edge.getEndVertex().equals(v)) {
+        if (edge.getStartVertex().equals(v)) {
             // If incident, add the edge to the list
             incidentEdges.add(edge);
         }
@@ -27,4 +27,5 @@ public class ExtendedGraph extends AbstractGraph {
 
     // Return the list of incident edges
     return incidentEdges;
+}
 }
