@@ -130,11 +130,17 @@ public class Path {
            //is set to 0, as it is already at distance 0 from itself.  Otherwise, if the current vertex is not the source vertex,
            // its distance is set to Integer.MAX_VALUE, indicating that it's initially unreachable
            // from the source vertex, effectively representing infinity.
-            pathVertex.distance = (vertex.equals(s)) ? 0 : Integer.MAX_VALUE;
-            paths.add(pathVertex);
+            
+           if (vertex.equals(s)) {
+               pathVertex.distance = 0; // Set distance to 0 for the source vertex
+           } 
+           else {
+            pathVertex.distance = Integer.MAX_VALUE; // Set distance to infinity for other vertices
+           }
+           paths.add(pathVertex);
         }
-        return paths;
-    }
+    return paths;
+}
 
     public static boolean relaxEdge(PathVertex v, PathVertex w, int weight) {
         if(!v.distance.equals(Integer.MAX_VALUE) && v.distance + weight < w.distance) {
