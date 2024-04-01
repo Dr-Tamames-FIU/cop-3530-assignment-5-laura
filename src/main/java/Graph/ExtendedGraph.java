@@ -7,7 +7,7 @@ public class ExtendedGraph extends AbstractGraph {
     public ExtendedGraph(List vertices, List edges) {
         super(vertices, edges);
     }
-
+ 
     /**
      * Return list of edges around vertex
      * @param v the vertex to get edges from
