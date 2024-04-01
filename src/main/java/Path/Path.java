@@ -120,9 +120,9 @@ public class Path {
         // This sets every PathVertex's parent to null and its distance to the source infinity
         // except for the source (s) where its distance is 0
         // get the vertices (which is of type Vertex) from g and create a List of type PathVertex
-        List<Vertex> vertices = g.getVertices();
+       // List<Vertex> vertices = g.getVertices();
         List<PathVertex> paths = new ArrayList<>();
-        for (Vertex vertex : vertices) {
+        for (Vertex vertex : g.getVertices()) {
             PathVertex pathVertex = new PathVertex(vertex.getLabel());
             
            // It initializes the distance attribute of each PathVertex in the graph. If the current vertex (vertex) 
@@ -131,7 +131,7 @@ public class Path {
            // its distance is set to Integer.MAX_VALUE, indicating that it's initially unreachable
            // from the source vertex, effectively representing infinity.
             
-           if (vertex.equals(s)) {
+           if (vertex == s) {
                pathVertex.distance = 0; // Set distance to 0 for the source vertex
            } 
            else {
