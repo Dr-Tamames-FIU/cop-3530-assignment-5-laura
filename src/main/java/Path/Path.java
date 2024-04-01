@@ -12,38 +12,14 @@ import Graph.ExtendedGraph;
 public class Path {
     public static void main(String args[]) throws Exception
     {
-
-    if (args.length < 2) {
-        System.err.println("Usage: java Path <vertex_file> <edge_file>");
-        System.exit(1);
-    }
-    String vertexFilePath = args[0];
-    String edgeFilePath = args[1];
-
-    try {  
         List<Vertex> vertices = readVertices("src/main/resources/vertex.txt");
         List<Edge> edges = readEdges("src/main/resources/edge.txt");
 
         ExtendedGraph graph = new ExtendedGraph(vertices, edges);
-        Vertex source = graph.getVertex(1);
-        List<PathVertex> shortestPaths = dijkstra(graph, source);
-        displayShortestPaths(shortestPaths);
-    } 
-    catch (IOException e) {
-        System.err.println("Error reading input files: " + e.getMessage());
-        e.printStackTrace();
-    } 
-    catch (Exception e) {
-        System.err.println("An error occurred: " + e.getMessage());
-        e.printStackTrace();
-    }
-}
-
-        
 //        Testing
-         List<Edge> incidentEdges = graph.incidentEdges(graph.getVertex(1));
+    /*      List<Edge> incidentEdges = graph.incidentEdges(graph.getVertex(1));
           System.out.println(incidentEdges.toString());
-      //    expected output: "[B A 9, B F 2, B C 12]"
+          expected output: "[B A 9, B F 2, B C 12]"
 
          Vertex source = graph.getVertex(1);
          System.out.println("Source: " + source);
@@ -52,7 +28,7 @@ public class Path {
          for(int i = 0; i < paths.size(); i++)
              pathsInStringForm = pathsInStringForm + paths.get(i).info().toString();
          System.out.println(pathsInStringForm)
-     //    expected output: "(parent: null distance: 2147483647 destination: A)(parent: null distance: 0 destination: B)(parent: null distance: 2147483647 destination: C)(parent: null distance: 2147483647 destination: D)(parent: null distance: 2147483647 destination: E)(parent: null distance: 2147483647 destination: F)(parent: null distance: 2147483647 destination: G)"
+         expected output: "(parent: null distance: 2147483647 destination: A)(parent: null distance: 0 destination: B)(parent: null distance: 2147483647 destination: C)(parent: null distance: 2147483647 destination: D)(parent: null distance: 2147483647 destination: E)(parent: null distance: 2147483647 destination: F)(parent: null distance: 2147483647 destination: G)"
 
          List<PathVertex> results = dijkstra(graph, graph.getVertex(1));
          String resultsInStringForm = "";
@@ -60,8 +36,8 @@ public class Path {
             resultsInStringForm = resultsInStringForm + results.get(i).info();
          }
          System.out.print(resultsInStringForm);
-      //    expected output: "(parent: F distance: 5 destination: A)(parent: null distance: 0 destination: B)(parent: G distance: 8 destination: C)(parent: C distance: 9 destination: D)(parent: G distance: 9 destination: E)(parent: B distance: 2 destination: F)(parent: A distance: 6 destination: G)"
-
+          expected output: "(parent: F distance: 5 destination: A)(parent: null distance: 0 destination: B)(parent: G distance: 8 destination: C)(parent: C distance: 9 destination: D)(parent: G distance: 9 destination: E)(parent: B distance: 2 destination: F)(parent: A distance: 6 destination: G)"
+*/
     }
 
     // ** TO DO **
@@ -72,8 +48,7 @@ public class Path {
         // Create a priority queue that is exactly the same thing as paths but
         // used for extracting minimum. This gets one element smaller after each iteration (see below)
         // ...
-        PriorityQueue<PathVertex> priority = new PriorityQueue<>(new SortByDistance()); 
-        priority.addAll(paths);
+        PriorityQueue<PathVertex> priority = updatePriorityQueueDistances(paths); 
         // while...
         while (!priority.isEmpty()) { 
             // always starts each iteration with the smallest PathVertex, pv
@@ -121,13 +96,6 @@ public class Path {
                             // ...
 
         return paths;
-    }
-    private static void displayShortestPaths(List<PathVertex> shortestPaths) {
-        System.out.println("Shortest paths:");
-        for (PathVertex pathVertex : shortestPaths) {
-            System.out.println(pathVertex.info());
-        }
-        System.out.println();
     }
 
     private static PriorityQueue<PathVertex> updatePriorityQueueDistances(List<PathVertex> paths) {
@@ -206,3 +174,4 @@ public class Path {
         return new String(Files.readAllBytes(Paths.get(fileName)));
     }
 }
+
