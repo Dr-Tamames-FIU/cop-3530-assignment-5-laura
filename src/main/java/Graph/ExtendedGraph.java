@@ -26,5 +26,6 @@ public class ExtendedGraph extends AbstractGraph {
     }
          // Return the list of incident edges
          return incidentEdges;
+        
     }
 }
