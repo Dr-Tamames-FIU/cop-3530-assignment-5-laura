@@ -13,9 +13,6 @@ public class ExtendedGraph extends AbstractGraph {
      * @param v the vertex to get edges from
      */
     // ** TO DO **
-    public List<Vertex> getVertices() {
-        return this.vertices;
-    }
     
     public List<Edge> incidentEdges(Vertex v) {
         // Returns the edges around vertex v
