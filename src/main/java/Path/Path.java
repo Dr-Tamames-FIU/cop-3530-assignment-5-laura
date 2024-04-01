@@ -67,7 +67,7 @@ public class Path {
             // for...
                 // ...
             for (Edge edge : edgesIncident) {
-                Vertex incidentVertex = edge.getEndVertex(); 
+                Vertex incidentVertex = edge.vertex2(); 
                 PathVertex incidentPathVertex = null;
                 // since the vertex (incidentVertex of type Vertex) returned from incident vertex
                 // does not hold information about its current distance to the source,
@@ -85,7 +85,7 @@ public class Path {
                         // see IF the edge needs to be relaxed
                         // ...
                  if (incidentPathVertex != null) {
-                     if (relaxEdge(pv, incidentPathVertex, edge.getWeight())) {
+                     if (relaxEdge(pv, incidentPathVertex, edge.weight())) {
                          priority.remove(incidentPathVertex);
                          priority.add(incidentPathVertex);
                      }
@@ -121,7 +121,13 @@ public class Path {
         // get the vertices (which is of type Vertex) from g and create a List of type PathVertex
         List <PathVertex> paths  = new ArrayList<>();
         for (Vertex vertex : g.vertices) {
-            PathVertex pathVertex = PathVertex (vertex);
+            PathVertex pathVertex = new PathVertex (vertex.getLabel()));
+            
+           // It initializes the distance attribute of each PathVertex in the graph. If the current vertex (vertex) 
+           // is the same as the source vertex (s), indicating that it's the starting point of the path, its distance 
+           //is set to 0, as it is already at distance 0 from itself.  Otherwise, if the current vertex is not the source vertex,
+           // its distance is set to Integer.MAX_VALUE, indicating that it's initially unreachable
+           // from the source vertex, effectively representing infinity.
             pathVertex.distance = (vertex.equals(s)) ? 0 : Integer.MAX_VALUE;
             paths.add(pathVertex);
         }
