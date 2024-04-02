@@ -62,7 +62,7 @@ public class Path {
 
             // retrieve all edges incident to pv
             // ...
-            List<Edge> edgesIncident = g.incidentEdges(pv);
+            List<Edge> edgesIncident = g.incidentEdges(pv.vertex);
 
             // look into (not visit) all vertices incident to pv
             // for...
@@ -95,24 +95,7 @@ public class Path {
         }
                             // if so, update the path vertices in pq
                             // ...
-
         return paths;
-    }
-
-    private static PriorityQueue<PathVertex> updatePriorityQueueDistances(List<PathVertex> paths) {
-        PriorityQueue<PathVertex> pq = new PriorityQueue<>(new SortByDistance());
-        for(int i = 0; i < paths.size(); i++) {
-            PathVertex currentPV = paths.get(i);
-
-            // If the currentPV is visited, skip
-            // This is how the priority queue gets smaller
-            if(currentPV.visited) {
-                continue;
-            }
-
-            pq.add(currentPV);
-        }
-        return pq;
     }
 
     // ** TO DO **
@@ -123,20 +106,21 @@ public class Path {
        // List<Vertex> vertices = g.getVertices();
         List<PathVertex> paths = new ArrayList<>();
         for (Vertex vertex : g.getVertices()) {
-            PathVertex pathVertex = new PathVertex(vertex.getLabel());
-            
+            //PathVertex pathVertex = new PathVertex(vertex.getLabel());
+            PathVertex pathVertex = new PathVertex(vertex);
+            pathVertex.distance = (vertex.equals(s)) ? 0 : Integer.MAX_VALUE;
            // It initializes the distance attribute of each PathVertex in the graph. If the current vertex (vertex) 
            // is the same as the source vertex (s), indicating that it's the starting point of the path, its distance 
            //is set to 0, as it is already at distance 0 from itself.  Otherwise, if the current vertex is not the source vertex,
            // its distance is set to Integer.MAX_VALUE, indicating that it's initially unreachable
            // from the source vertex, effectively representing infinity.
             
-           if (vertex == s) {
+         /*  if (vertex == s) {
                pathVertex.distance = 0; // Set distance to 0 for the source vertex
            } 
            else {
             pathVertex.distance = Integer.MAX_VALUE; // Set distance to infinity for other vertices
-           }
+           }*/
            paths.add(pathVertex);
         }
     return paths;
