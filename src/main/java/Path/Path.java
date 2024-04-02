@@ -62,7 +62,7 @@ public class Path {
 
             // retrieve all edges incident to pv
             // ...
-            List<Edge> edgesIncident = g.incidentEdges(pv.vertex);
+            List<Edge> edgesIncident = g.incidentEdges(pv);
 
             // look into (not visit) all vertices incident to pv
             // for...
@@ -103,7 +103,7 @@ public class Path {
         // This sets every PathVertex's parent to null and its distance to the source infinity
         // except for the source (s) where its distance is 0
         // get the vertices (which is of type Vertex) from g and create a List of type PathVertex
-       // List<Vertex> vertices = g.getVertices();
+       //List<Vertex> vertices = g.getVertices();
         List<PathVertex> paths = new ArrayList<>();
         for (Vertex vertex : g.getVertices()) {
             //PathVertex pathVertex = new PathVertex(vertex.getLabel());
