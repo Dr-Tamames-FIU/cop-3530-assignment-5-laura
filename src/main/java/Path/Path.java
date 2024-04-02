@@ -104,24 +104,16 @@ public class Path {
         // except for the source (s) where its distance is 0
         // get the vertices (which is of type Vertex) from g and create a List of type PathVertex
           List<PathVertex> paths = new ArrayList<>();
-
-    for (Vertex vertex : g.vertices) {
-        PathVertex pathVertex = new PathVertex(vertex.getLabel());
-        pathVertex.distance = Integer.MAX_VALUE;
-        pathVertex.parent = null;
-        paths.add(pathVertex);
-    }
-    
+          List<Vertex> vertices = g.vertices();
     // Now you can use paths here
-    for (PathVertex pathVertex : paths) {
-        if (pathVertex.getLabel().equals(s.getLabel())) {
-            pathVertex.distance = 0;
-            break;
+    for (Vertex vertex : vertices) {
+            PathVertex pathVertex = new PathVertex(vertex.getLabel());
+            pathVertex.distance = (vertex.equals(s)) ? 0 : Integer.MAX_VALUE;
+            paths.add(pathVertex);
         }
-    }
 
-    return paths;
-}
+        return paths;
+    }
     
     public static boolean relaxEdge(PathVertex v, PathVertex w, int weight) {
         if(!v.distance.equals(Integer.MAX_VALUE) && v.distance + weight < w.distance) {
