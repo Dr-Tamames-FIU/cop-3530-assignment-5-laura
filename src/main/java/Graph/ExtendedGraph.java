@@ -29,5 +29,5 @@ public class ExtendedGraph extends AbstractGraph {
          return incidentEdges;
         
     }
- List<PathVertex> paths = initializeSingleSource(vertices, s);
+ 
 }
