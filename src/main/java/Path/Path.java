@@ -103,21 +103,23 @@ public class Path {
         // This sets every PathVertex's parent to null and its distance to the source infinity
         // except for the source (s) where its distance is 0
         // get the vertices (which is of type Vertex) from g and create a List of type PathVertex
-        for (Vertex vertex : g.vertices) {
+          List<PathVertex> paths = new ArrayList<>(); // Move the declaration here
+
+    for (Vertex vertex : g.vertices) {
         PathVertex pathVertex = new PathVertex(vertex.getLabel());
         pathVertex.distance = Integer.MAX_VALUE;
         pathVertex.parent = null;
         paths.add(pathVertex);
-        }
-        List<PathVertex> paths = new ArrayList<>();
-           
- for (PathVertex pathVertex : paths) {
+    }
+    
+    // Now you can use paths here
+    for (PathVertex pathVertex : paths) {
         if (pathVertex.getLabel().equals(s.getLabel())) {
             pathVertex.distance = 0;
             break;
         }
     }
-    
+
     return paths;
 }
     
