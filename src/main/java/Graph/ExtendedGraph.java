@@ -15,7 +15,7 @@ public class ExtendedGraph extends AbstractGraph {
     // ** TO DO **
     public List<Edge> incidentEdges(Vertex v) {
         // Returns the edges around vertex v
-        List<PathVertex> paths = initializeSingleSource(vertices, s);
+       
         List<Edge> incidentEdges = new ArrayList<>();
 
     for (Edge edge : edges) {
@@ -29,5 +29,5 @@ public class ExtendedGraph extends AbstractGraph {
          return incidentEdges;
         
     }
-
+ List<PathVertex> paths = initializeSingleSource(vertices, s);
 }
