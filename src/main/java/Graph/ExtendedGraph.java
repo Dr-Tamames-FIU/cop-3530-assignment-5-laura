@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExtendedGraph extends AbstractGraph {
-    public List<Vertex> vertices;
     public ExtendedGraph(List vertices, List edges) {
         super(vertices, edges);
     }
