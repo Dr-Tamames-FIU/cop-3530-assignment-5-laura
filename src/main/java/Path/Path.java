@@ -77,7 +77,7 @@ public class Path {
                     // ...
                     // ...
                 for (PathVertex pathVertex : paths) {
-                    if (pathVertex.equals(ver)) {
+                    if (pathVertex.getLabel().equals(ver.getLabel())) {
                         incidentPathVertex = pathVertex;
                         break;
                     }
@@ -103,7 +103,7 @@ public class Path {
         // This sets every PathVertex's parent to null and its distance to the source infinity
         // except for the source (s) where its distance is 0
         // get the vertices (which is of type Vertex) from g and create a List of type PathVertex
-          List<PathVertex> paths = new ArrayList<>(); // Move the declaration here
+          List<PathVertex> paths = new ArrayList<>();
 
     for (Vertex vertex : g.vertices) {
         PathVertex pathVertex = new PathVertex(vertex.getLabel());
