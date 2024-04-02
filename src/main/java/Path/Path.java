@@ -105,7 +105,7 @@ public class Path {
         // get the vertices (which is of type Vertex) from g and create a List of type PathVertex
        //List<Vertex> vertices = g.getVertices();
         List<PathVertex> paths = new ArrayList<>();
-        for (Vertex vertex : g.getVertices()) {
+        for (Vertex vertex : g.vertices) {
             PathVertex pathVertex = new PathVertex(vertex.getLabel());
             
             pathVertex.distance = (vertex.equals(s)) ? 0 : Integer.MAX_VALUE;
