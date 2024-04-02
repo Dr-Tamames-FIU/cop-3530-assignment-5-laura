@@ -28,7 +28,5 @@ public class ExtendedGraph extends AbstractGraph {
          return incidentEdges;
         
     }
-     public List<Vertex> getVertices() {
-        return this.vertices;
-    }
+
 }
